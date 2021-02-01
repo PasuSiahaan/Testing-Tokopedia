@@ -1,0 +1,32 @@
+ul {
+    list-style: none;
+}
+
+.bg-primary{
+    background: #7deb00;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    opacity: 0.9;
+    margin-bottom: 3rem;
+}
+
+
+.navbar ul {
+    display: flex;
+    padding-left: 0.55rem;
+}
+.navbar a {
+    color: #000000;
+    padding: 0.25rem;
+    margin: 0 0.75rem;
+    text-decoration: none;
+}
+.navbar a:hover {
+    color: #ffffff;
+}
+
+
