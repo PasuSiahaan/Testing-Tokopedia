@@ -9,8 +9,9 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar'
 import Home from './components/Home';
 
-//container for page
+// page
 import PokemonList from "./container/Page/PokemonList/PokemonList";
+import PokemonDetail from "./container/Page/PokemonDetail/PokemonDetail"
 
 const client = new ApolloClient({
   uri: 'https://graphql-pokeapi.vercel.app/api/graphql',
@@ -26,6 +27,7 @@ const App =()=>{
           <div className='container'>
             <Route exact path='/' component={PokemonList} /> 
             <Route exact path='/my-pokemon-list' component={Home} /> 
+            <Route exact path='/pokemon-detail/:pokemonName' component={PokemonDetail} /> 
           </div>
         </div>
       </Router>

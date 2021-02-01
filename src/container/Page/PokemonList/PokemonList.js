@@ -6,6 +6,8 @@ import './PokemonList.css'
 
 //import component
 import Pokemon from '../../../components/PokemonList/Pokemon';
+import Loading from '../../../components/Loading/Loading';
+import Error from '../../../components/Error/Error'
 
 const GET_POKEMON_LIST = gql`
     query pokemons($limit: Int, $offset: Int) {
@@ -29,23 +31,14 @@ const PokemonList = () => {
       
     
     if(loading){
-        return(
-            <div>
-                loading
-            </div>
-        )
+        return(<Loading />)
     }
     if(error){
-        return(
-            <div>
-                {error.message}
-            </div>
-        )
+        return(<Error error={error.message}/>)
     }
-    
     return(
         <Fragment>
-            <p>ini adalah list pokemon</p>
+            <h3 className="text-center">List of Pokemon</h3>
             <div className="list-pokemon">
                 {data.pokemons.results.map(pokemonData=>(
                     <Pokemon key={pokemonData.id} pokemonName={pokemonData.name} />

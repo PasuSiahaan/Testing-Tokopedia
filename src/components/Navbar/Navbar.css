@@ -7,11 +7,14 @@ ul {
 }
 
 .navbar {
+    position: fixed;
     display: flex;
     justify-content: space-between;
     width: 100%;
-    opacity: 0.9;
+    opacity: 1;
     margin-bottom: 3rem;
+    z-index: 1;
+    top: 0;
 }
 
 
