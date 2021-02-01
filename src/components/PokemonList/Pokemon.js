@@ -12,8 +12,8 @@ const Pokemon = (props) => {
     }
     return (
         <div className="pokemon" onClick={() => getPokemonDetail(props.pokemonName)}>
-            <p>{props.pokemonName}</p>
-            <p>Own: 0</p>
+            <p className="pokemon-name">{props.pokemonName}</p>
+            <p className="pokemon-own">Own: 0</p>
         </div>
     )
 }
