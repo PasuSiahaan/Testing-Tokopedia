@@ -6,9 +6,17 @@
     flex-wrap: wrap;
     border-style: solid;
     border-width: 1px;
-    justify-content: center;
+    padding: 5px;
 }
-.move-name {
-    min-width: 100px;
-    padding: 5px; 
+.tag {
+  background: rgb(194, 189, 189);
+  border-radius: 3px 0 0 3px;
+  color: rgb(0, 0, 0);
+  display: inline-block;
+  padding: 4px 12px;
+  margin: 4px;
+  height: 26px;
+  line-height: 26px;
+  border-radius: 10px;
+  cursor: context-menu;
 }

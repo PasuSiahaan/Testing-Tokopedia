@@ -3,6 +3,7 @@
 }
 .catch-bottom {
     background-color: #47ff4d;
+    width: 500px;
     border: none;
     color: black;
     padding: 15px 32px;
@@ -48,4 +49,10 @@
 }
 .fail-title {
     margin-top: 0px;
+}
+
+@media (max-width: 720px) {
+    .catch-bottom {
+        width: 80%;
+    }
 }

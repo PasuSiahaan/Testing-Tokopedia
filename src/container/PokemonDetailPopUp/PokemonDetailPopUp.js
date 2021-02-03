@@ -71,12 +71,12 @@ const PokemonDetailPopUp = (prop) => {
                     <div className="pokemon-form">
                         <h1 className="text-center">Success to catch</h1>
                         <h3 className="description">Please enter your pokemon name</h3>
-                        <div class="row">
+                        <div className="row">
                             <label htmlFor="pokemon-name">Pokemon Name</label>
                             <input type="text" name="pokemon-name" className="pokemon-input" placeholder="pokemon name" value={pokemonName} onChange={handlePokemonNameChange}></input>
                             <small className="small-text">{status}</small>
                         </div>
-                        <div class="button-submit-div">
+                        <div className="button-submit-div">
                             <button className="btn-submit" onClick={submitForm}>Submit</button>
                         </div>
                     </div>
@@ -91,7 +91,7 @@ const PokemonDetailPopUp = (prop) => {
                     <div className="failed-popup" onClick={closeCatchFailed}>
                         <div>
                             <h1 className="text-center fail-title">Failed</h1>
-                            <div class="message">
+                            <div className="message">
                                 <p className="text-center">Please try again</p>
                             </div>
                         </div>

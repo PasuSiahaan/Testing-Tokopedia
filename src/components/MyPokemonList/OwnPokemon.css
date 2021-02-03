@@ -1,11 +1,12 @@
-.pokemon {
+.own-pokemon {
     min-height: 150px;
     width: 200px;
     border-style: solid;
     border-width: 1px;
     margin: 10px;
     text-align: center;
-    cursor: pointer;
+    padding: 0 5px;
+    position: relative;
 }
 .own-pokemon-name {
     font-size: 23px;
@@ -13,10 +14,25 @@
 }
 .actual-pokemon-name-place {
     font-size: 13px;
+    margin-bottom: 50px;
 }
 .actual-pokemon-name {
     text-transform: capitalize;
 }
+.btn-remove-div {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+}
+.remove-btn {
+    margin-bottom: 10px;
+    width: 80%;
+    background-color: red;
+    color: white;
+    border-radius: 9px;
+}
+
 
 @media (max-width: 720px) {
     .pokemon {
