@@ -56,7 +56,7 @@ const PokemonDetail = () => {
             <h1 className="title-center">{data.pokemon.name}</h1>
             <div className="pokemon-detail">
                 <div className="pokemon-image-div">
-                    <img className="pokemon-image" src={data.pokemon.sprites.front_default}/>
+                    <img className="pokemon-image" src={data.pokemon.sprites.front_default} alt={data.pokemon.name}/>
                 </div>
                 <div className="pokemon-detail-div">
                     <div>
