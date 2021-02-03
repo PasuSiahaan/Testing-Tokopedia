@@ -1,3 +1,14 @@
+# Pokemon List App
+This project is an app for get list of pokemon and list your own pokemon
+
+This project is deploy into this [link](https://test-fe-tokopedia.web.app/)
+
+In this project, your own list pokemon is save in this [API](https://my-pokemon-list.herokuapp.com/api/)
+
+For code for API for your own pokemon is in this [link](https://gitlab.com/Pasu/my-pokemon-list)
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
