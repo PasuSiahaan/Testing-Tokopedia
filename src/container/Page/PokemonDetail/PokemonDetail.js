@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react'
+import React, {Fragment} from 'react'
 import {useParams} from "react-router-dom";
 import { gql, useQuery } from '@apollo/client';
 
@@ -63,7 +63,7 @@ const PokemonDetail = () => {
                         <p>Types</p>
                         <div className="pokemon-type-list">
                             {data.pokemon.types.map(res=>(
-                                <PokemonType key={res.type.name} type={res.type.name} />
+                                <PokemonType key={res.type.name} type={res.type.name} alt={res.type.name}/>
                             ))}
                         </div>
                     </div>

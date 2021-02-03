@@ -82,7 +82,6 @@ const PokemonDetailPopUp = (prop) => {
                     <div>
                         <h1>Failed</h1>
                         <p>Some Contents</p>
-                        <a onClick={closeCatchFailed}>Close</a>
                     </div>
                 </Modal>
             </div>
