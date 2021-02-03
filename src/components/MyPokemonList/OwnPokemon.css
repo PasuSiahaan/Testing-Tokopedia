@@ -1,5 +1,5 @@
 .pokemon {
-    height: 150px;
+    min-height: 150px;
     width: 200px;
     border-style: solid;
     border-width: 1px;
@@ -20,7 +20,7 @@
 
 @media (max-width: 720px) {
     .pokemon {
-        height: 100px;
+        min-height: 100px;
         width: 150px;
     }
     .own-pokemon-name {

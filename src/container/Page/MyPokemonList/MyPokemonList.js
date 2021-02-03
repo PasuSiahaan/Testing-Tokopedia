@@ -1,6 +1,9 @@
 import React, {useEffect,useState,Fragment} from 'react'
 import axios from 'axios';
 
+//css
+import './MyPokemonList.css'
+
 //component
 import Loading from '../../../components/Loading/Loading';
 import Error from '../../../components/Error/Error'

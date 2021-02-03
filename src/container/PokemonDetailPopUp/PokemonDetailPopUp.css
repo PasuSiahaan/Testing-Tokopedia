@@ -1,3 +1,51 @@
 .pokemon-form label{
     display: block;
 }
+.catch-bottom {
+    background-color: #47ff4d;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 23px;
+  }
+.row {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.btn-submit {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.button-submit-div {
+    text-align: center;
+}
+.description {
+    padding-left: 10px;
+}
+.pokemon-input {
+    margin: 0 4px;
+    display: block;
+}
+.small-text {
+    margin-left: 4px;
+    color: red;
+}
+.failed-popup {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fail-title {
+    margin-top: 0px;
+}

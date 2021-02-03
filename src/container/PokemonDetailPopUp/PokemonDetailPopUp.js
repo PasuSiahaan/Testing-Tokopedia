@@ -10,6 +10,7 @@ const PokemonDetailPopUp = (prop) => {
     const [popupCatchForm,setPopupCatchForm] = useState(false)
     const [popupCatchFailed,setPopupCatchFailed] = useState(false)
     const [pokemonName, setPokemonName] = useState("")
+    const [status, setStatus] = useState("")
 
 
     function closeForm() {
@@ -37,6 +38,7 @@ const PokemonDetailPopUp = (prop) => {
     }
 
     function submitForm() {
+        setStatus("")
         axios.get('https://my-pokemon-list.herokuapp.com/api/').then(res=>{
             let pokemonNameList = res.data
             let pokemonData = pokemonNameList.find(findPokemonName)
@@ -44,10 +46,11 @@ const PokemonDetailPopUp = (prop) => {
                 let formData = {'pokemonName':pokemonName,'actualPokemonName':prop.name}
                 axios.post("https://my-pokemon-list.herokuapp.com/api/",formData).then(res1=>{
                     setPopupCatchForm(false)
+                    setPokemonName("")
                 })
             }
             else {
-                console.log("nama sudah ada")
+                setStatus(`there is pokemon with name '${pokemonName}'`)
             }
         })
     }
@@ -66,10 +69,16 @@ const PokemonDetailPopUp = (prop) => {
                     onClickAway={closeForm}
                 >
                     <div className="pokemon-form">
-                        <h1>Failed</h1>
-                        <label htmlFor="pokemon-name">Pokemon Name</label>
-                        <input type="text" name="pokemon-name" placeholder="pokemon name" onChange={handlePokemonNameChange}></input>
-                        <button className="btn-submit" onClick={submitForm}>Submit</button>
+                        <h1 className="text-center">Success to catch</h1>
+                        <h3 className="description">Please enter your pokemon name</h3>
+                        <div class="row">
+                            <label htmlFor="pokemon-name">Pokemon Name</label>
+                            <input type="text" name="pokemon-name" className="pokemon-input" placeholder="pokemon name" value={pokemonName} onChange={handlePokemonNameChange}></input>
+                            <small className="small-text">{status}</small>
+                        </div>
+                        <div class="button-submit-div">
+                            <button className="btn-submit" onClick={submitForm}>Submit</button>
+                        </div>
                     </div>
                 </Modal>
                 <Modal 
@@ -79,9 +88,13 @@ const PokemonDetailPopUp = (prop) => {
                     effect="fadeInUp"
                     onClickAway={closeCatchFailed}
                 >
-                    <div>
-                        <h1>Failed</h1>
-                        <p>Some Contents</p>
+                    <div className="failed-popup" onClick={closeCatchFailed}>
+                        <div>
+                            <h1 className="text-center fail-title">Failed</h1>
+                            <div class="message">
+                                <p className="text-center">Please try again</p>
+                            </div>
+                        </div>
                     </div>
                 </Modal>
             </div>
