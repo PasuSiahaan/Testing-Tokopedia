@@ -7,18 +7,23 @@
     text-align: center;
     cursor: pointer;
 }
-.pokemon-name {
+.own-pokemon-name {
     font-size: 23px;
     font-weight: bold;
-    text-transform: capitalize;
 }
-.pokemon-own {
+.actual-pokemon-name-place {
     font-size: 13px;
+}
+.actual-pokemon-name {
+    text-transform: capitalize;
 }
 
 @media (max-width: 720px) {
     .pokemon {
         height: 100px;
         width: 150px;
+    }
+    .own-pokemon-name {
+        margin-top: 7px;
     }
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 
@@ -7,11 +7,11 @@ import './App.css';
 
 //component
 import Navbar from './components/Navbar/Navbar'
-import Home from './components/Home';
 
 // page
 import PokemonList from "./container/Page/PokemonList/PokemonList";
 import PokemonDetail from "./container/Page/PokemonDetail/PokemonDetail"
+import MyPokemonList from "./container/Page/MyPokemonList/MyPokemonList"
 
 const client = new ApolloClient({
   uri: 'https://graphql-pokeapi.vercel.app/api/graphql',
@@ -19,6 +19,10 @@ const client = new ApolloClient({
 });
 
 const App =()=>{
+  useEffect(() => {
+    localStorage.setItem('my-pokemon-list',[])
+  }, []);
+  
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -26,7 +30,7 @@ const App =()=>{
           <Navbar />   
           <div className='container'>
             <Route exact path='/' component={PokemonList} /> 
-            <Route exact path='/my-pokemon-list' component={Home} /> 
+            <Route exact path='/my-pokemon-list' component={MyPokemonList} /> 
             <Route exact path='/pokemon-detail/:pokemonName' component={PokemonDetail} /> 
           </div>
         </div>

@@ -1,0 +1,14 @@
+.pokemon-move-list {
+    width: 70%;
+}
+.move {
+    display: flex;
+    flex-wrap: wrap;
+    border-style: solid;
+    border-width: 1px;
+    justify-content: center;
+}
+.move-name {
+    min-width: 100px;
+    padding: 5px; 
+}

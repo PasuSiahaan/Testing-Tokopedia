@@ -1,8 +1,14 @@
-import React from 'react'
+import React, {Fragment} from 'react'
+import "./Loading.css"
+import logo from '../../asset/half-circle.gif'
 
 const Loading = () => {
     return(
-        <h3 className="text-center">Loading</h3>
+        <Fragment>
+            <div className="loading-image-div">
+                <img className="loading-image" src={logo} alt="loading ..."/>
+            </div>
+        </Fragment>
     )
 }
 

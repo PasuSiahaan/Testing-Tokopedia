@@ -1,10 +1,9 @@
 import React from 'react'
 
 const Error = (error) => {
-    console.log(error)
     return(
         <div>
-            <p className="text-center">{error.error}</p>
+            <h3 className="text-center">{error.error}</h3>
         </div>
     )
 }
