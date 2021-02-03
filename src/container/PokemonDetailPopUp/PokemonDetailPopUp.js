@@ -37,12 +37,12 @@ const PokemonDetailPopUp = (prop) => {
     }
 
     function submitForm() {
-        axios.get('http://my-pokemon-list.herokuapp.com/api/').then(res=>{
+        axios.get('https://my-pokemon-list.herokuapp.com/api/').then(res=>{
             let pokemonNameList = res.data
             let pokemonData = pokemonNameList.find(findPokemonName)
             if(pokemonData === undefined) {
                 let formData = {'pokemonName':pokemonName,'actualPokemonName':prop.name}
-                axios.post("http://my-pokemon-list.herokuapp.com/api/",formData).then(res1=>{
+                axios.post("https://my-pokemon-list.herokuapp.com/api/",formData).then(res1=>{
                     setPopupCatchForm(false)
                 })
             }

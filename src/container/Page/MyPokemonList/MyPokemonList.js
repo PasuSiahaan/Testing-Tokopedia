@@ -29,8 +29,7 @@ const MyPokemonList = () => {
     const [error,setError] = useState("")
     useEffect(() => {
         setLoading(true)
-        axios.get('http://my-pokemon-list.herokuapp.com/api/').then(res=>{
-            console.log(res)
+        axios.get('https://my-pokemon-list.herokuapp.com/api/').then(res=>{
             setMyDataPokemon(res.data)
             setLoading(false)
         }).catch(error => {

@@ -29,7 +29,7 @@ const PokemonList = () => {
     
     const [myDataPokemon,setMyDataPokemon] = useState([])
     useEffect(() => {
-        axios.get('http://my-pokemon-list.herokuapp.com/api/').then(res=>{
+        axios.get('https://my-pokemon-list.herokuapp.com/api/').then(res=>{
             setMyDataPokemon(res.data)
         })
     }, []);
