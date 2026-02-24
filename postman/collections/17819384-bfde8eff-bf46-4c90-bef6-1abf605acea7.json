@@ -1,0 +1,347 @@
+{
+	"info": {
+		"_postman_id": "17819384-bfde8eff-bf46-4c90-bef6-1abf605acea7",
+		"name": "Trigger Dag",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Triiger Dag QAT",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6559ae0e-a5c9-4c3c-8c0e-43b49d1d6fd2",
+						"exec": [
+							"// Define your DAG list and common body",
+							"const dagFormat = \"presum_vpay_settlement_report_{brand_code}\"",
+							"const commonBody = {",
+							"    conf: {",
+							"        \"start_report_date\":\"2026-01-01 00:00\",",
+							"        \"end_report_date\":\"2026-02-01 23:59\",",
+							"        \"page_size\":10000,",
+							"        \"min_pool_conn\":1,",
+							"        \"max_pool_conn\": 10",
+							"    }",
+							"};",
+							"const brandList = [\"V1001\", \"V1002\"];",
+							"",
+							"const airflowUrl = \"https://airflow.qatsec168.xyz\";",
+							"const username = \"pr08\";",
+							"const password = \"P@ssw0rd\";",
+							"",
+							"// Trigger each DAG",
+							"brandList.forEach(brandCode => {",
+							"    const dagId = dagFormat.replace('{brand_code}', brandCode);",
+							"    const url = `${airflowUrl}/api/v1/dags/${dagId}/dagRuns`;",
+							"    pm.sendRequest({",
+							"        url: url,",
+							"        method: 'POST',",
+							"        header: {",
+							"            'Content-Type': 'application/json',",
+							"            'Authorization': 'Basic ' + btoa(`${username}:${password}`)",
+							"        },",
+							"        body: {",
+							"            mode: 'raw',",
+							"            raw: JSON.stringify(commonBody)",
+							"        }",
+							"    }, (err, response) => {",
+							"        if (err) {",
+							"            console.log(`Error triggering ${dagId}:`, err);",
+							"        } else {",
+							"            console.log(`${dagId}: ${response.code} - ${response.json().state}`);",
+							"        }",
+							"    });",
+							"});",
+							"",
+							"// Stop the actual request from executing",
+							"postman.setNextRequest(null);"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"id": "17819384-99155a6b-4680-4626-b0a7-8458ea3055e8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "www.google.com",
+					"host": [
+						"www",
+						"google",
+						"com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Triiger Dag PROD",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6559ae0e-a5c9-4c3c-8c0e-43b49d1d6fd2",
+						"exec": [
+							"// Define your DAG list and common body",
+							"const dagFormat = \"wlb_daily_presum_{brand_code}\"",
+							"const commonBody = {",
+							"    conf: {",
+							"    \"category_tasks\": null,",
+							"    \"end_date\": \"2026-02-11\",",
+							"    \"kwargs\": null,",
+							"    \"max_pool_conn\": 10,",
+							"    \"min_pool_conn\": 1,",
+							"    \"start_date\": \"2026-01-20\",",
+							"    \"tasks\": [",
+							"        \"task_presum_withdraw_daily\"",
+							"    ]",
+							"}",
+							"};",
+							"const brandList = [\"V1155\",",
+							"\"V1154\",",
+							"\"V1153\",",
+							"\"V1149\",",
+							"\"V1148\",",
+							"\"V1145\",",
+							"\"V1142\",",
+							"\"V1143\",",
+							"\"V1141\",",
+							"\"V1137\",",
+							"\"V1136\",",
+							"\"V1139\",",
+							"\"V1138\",",
+							"\"V1127\",",
+							"\"V1125\",",
+							"\"V1124\",",
+							"\"V1126\",",
+							"\"V1122\",",
+							"\"V1121\",",
+							"\"V1113\",",
+							"\"V1118\",",
+							"\"V1116\",",
+							"\"V1117\",",
+							"\"V1114\",",
+							"\"V1115\",",
+							"\"V1112\",",
+							"\"V1111\",",
+							"\"V1106\",",
+							"\"V1105\",",
+							"\"V1102\",",
+							"\"V1104\",",
+							"\"V1101\",",
+							"\"V1098\",",
+							"\"V1099\",",
+							"\"V1100\",",
+							"\"V1095\",",
+							"\"V1093\",",
+							"\"V1094\",",
+							"\"V1091\",",
+							"\"V1132\",",
+							"\"V1133\",",
+							"\"V1134\",",
+							"\"V1131\",",
+							"\"V1130\",",
+							"\"V1129\",",
+							"\"V1128\",",
+							"\"V1088\",",
+							"\"V1085\",",
+							"\"V1086\",",
+							"\"V1076\",",
+							"\"V1077\",",
+							"\"V1078\",",
+							"\"V1073\",",
+							"\"V1072\",",
+							"\"V1071\",",
+							"\"V1070\",",
+							"\"V1069\",",
+							"\"V1068\",",
+							"\"V1066\",",
+							"\"V1067\",",
+							"\"V1065\",",
+							"\"V1058\",",
+							"\"V1059\",",
+							"\"V1057\",",
+							"\"V1056\",",
+							"\"V1054\",",
+							"\"V1055\",",
+							"\"V1049\",",
+							"\"V1051\",",
+							"\"V1048\",",
+							"\"V1047\",",
+							"\"V1046\",",
+							"\"V1038\",",
+							"\"V1043\",",
+							"\"V1039\",",
+							"\"V1040\",",
+							"\"V1036\",",
+							"\"V1037\",",
+							"\"V1034\",",
+							"\"V1023\",",
+							"\"V1022\",",
+							"\"V1021\",",
+							"\"V1017\",",
+							"\"V1020\",",
+							"\"V1015\",",
+							"\"V1012\",",
+							"\"V1025\",",
+							"\"V1013\",",
+							"\"V1018\",",
+							"\"V1009\",",
+							"\"V1008\",",
+							"\"V1007\",",
+							"\"V1006\",",
+							"\"V1005\",",
+							"\"V1003\",",
+							"\"V1001\"];",
+							"",
+							"const airflowUrl = \"https://airflow.88apro.xyz\";",
+							"const username = \"pr08\";",
+							"const password = \"P@ssw0rd\";",
+							"",
+							"// Trigger each DAG",
+							"brandList.forEach(brandCode => {",
+							"    const dagId = dagFormat.replace('{brand_code}', brandCode);",
+							"    const url = `${airflowUrl}/api/v1/dags/${dagId}/dagRuns`;",
+							"    pm.sendRequest({",
+							"        url: url,",
+							"        method: 'POST',",
+							"        header: {",
+							"            'Content-Type': 'application/json',",
+							"            'Authorization': 'Basic ' + btoa(`${username}:${password}`)",
+							"        },",
+							"        body: {",
+							"            mode: 'raw',",
+							"            raw: JSON.stringify(commonBody)",
+							"        }",
+							"    }, (err, response) => {",
+							"        if (err) {",
+							"            console.log(`Error triggering ${dagId}:`, err);",
+							"        } else {",
+							"            console.log(`${dagId}: ${response.code} - ${response.json().state}`);",
+							"        }",
+							"    });",
+							"});",
+							"",
+							"// Stop the actual request from executing",
+							"postman.setNextRequest(null);"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"id": "17819384-12738ca1-60b0-4826-b0c9-0cdf03b3335c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "www.google.comss",
+					"host": [
+						"www",
+						"google",
+						"comss"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "token - pasu",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "800725da-3ff8-4885-80a6-02ed430e4ccb",
+						"exec": [
+							"const r = pm.response.json()\r",
+							"pm.environment.set(\"access_token\", r.access_token)\r",
+							"pm.environment.set(\"refresh_token\", r.refresh_token)"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b35b0673-90d4-4898-a76f-51151daa6266",
+						"exec": [
+							"pm.request.headers.add({",
+							"    key: 'X-Engine-Id',",
+							"    value: pm.environment.get(\"engine_id\")",
+							"});",
+							"",
+							"pm.request.headers.add({",
+							"    key: 'X-Brand-Id',",
+							"    value: pm.environment.get(\"brand_id\")",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"id": "17819384-9366a9e5-f0ab-4c19-ad0d-55295603796f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"pasutest2\",\r\n    \"password\":\"asdf1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/portal/auth/token",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"portal",
+						"auth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
